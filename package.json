@@ -2,9 +2,9 @@
     "private": true,
     "type": "module",
     "scripts": {
-        "dev": "npx tailwindcss -i resources/css/filament-language-switch.css -o resources/dist/filament-language-switch.css --postcss --watch",
-        "build": "npx tailwindcss -i resources/css/filament-language-switch.css -o resources/dist/filament-language-switch.css --postcss --minify && npm run purge",
-        "purge": "filament-purge -i resources/dist/filament-language-switch.css -o resources/dist/filament-language-switch.css -v 3.x",
+        "dev": "npx tailwindcss -i resources/css/filament-country-switch.css -o resources/dist/filament-country-switch.css --postcss --watch",
+        "build": "npx tailwindcss -i resources/css/filament-country-switch.css -o resources/dist/filament-country-switch.css --postcss --minify && npm run purge",
+        "purge": "filament-purge -i resources/dist/filament-country-switch.css -o resources/dist/filament-country-switch.css -v 3.x",
         "prettier": "npx prettier --write ."
     },
     "devDependencies": {

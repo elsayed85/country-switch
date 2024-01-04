@@ -13,20 +13,20 @@
                 'p-1 ring-2 ring-inset ring-gray-200 hover:ring-gray-300 dark:ring-gray-500 hover:dark:ring-gray-400' => $isFlagsOnly || $hasFlags,
             ])
             x-tooltip="{
-                content: @js($languageSwitch->getLabel(app()->getLocale())),
+                content: @js($countrySwitch->getLabel(app()->getLocale())),
                 theme: $store.theme,
                 placement: 'bottom'
             }"
         >
             @if ($isFlagsOnly || $hasFlags)
-                <x-filament-language-switch::flag
-                    :src="$languageSwitch->getFlag(app()->getLocale())"
+                <x-filament-country-switch::flag
+                    :src="$countrySwitch->getFlag(app()->getLocale())"
                     :circular="$isCircular"
-                    :alt="$languageSwitch->getLabel(app()->getLocale())"
+                    :alt="$countrySwitch->getLabel(app()->getLocale())"
                     :switch="true"
                 />
             @else
-                <span class="font-semibold text-md">{{ $languageSwitch->getCharAvatar(app()->getLocale()) }}</span>
+                <span class="font-semibold text-md">{{ $countrySwitch->getCharAvatar(app()->getLocale()) }}</span>
             @endif
         </div>
     </x-slot>
@@ -39,7 +39,7 @@
                     wire:click="changeLocale('{{ $locale }}')"
                     @if ($isFlagsOnly)
                     x-tooltip="{
-                        content: @js($languageSwitch->getLabel($locale)),
+                        content: @js($countrySwitch->getLabel($locale)),
                         theme: $store.theme,
                         placement: 'right'
                     }"
@@ -53,18 +53,18 @@
                 >
 
                     @if ($isFlagsOnly)
-                        <x-filament-language-switch::flag
-                            :src="$languageSwitch->getFlag($locale)"
+                        <x-filament-country-switch::flag
+                            :src="$countrySwitch->getFlag($locale)"
                             :circular="$isCircular"
-                            :alt="$languageSwitch->getLabel($locale)"
+                            :alt="$countrySwitch->getLabel($locale)"
                             class="w-7 h-7"
                         />
                     @else
                         @if ($hasFlags)
-                            <x-filament-language-switch::flag
-                                :src="$languageSwitch->getFlag($locale)"
+                            <x-filament-country-switch::flag
+                                :src="$countrySwitch->getFlag($locale)"
                                 :circular="$isCircular"
-                                :alt="$languageSwitch->getLabel($locale)"
+                                :alt="$countrySwitch->getLabel($locale)"
                                 class="p-0.5 w-7 h-7"
                             />
                         @else
@@ -75,11 +75,11 @@
                                     'rounded-lg' => !$isCircular,
                                 ])
                             >
-                                {{ $languageSwitch->getCharAvatar($locale) }}
+                                {{ $countrySwitch->getCharAvatar($locale) }}
                             </span>
                         @endif
                         <span class="text-sm font-medium text-gray-600 hover:bg-transparent dark:text-gray-200">
-                            {{ $languageSwitch->getLabel($locale) }}
+                            {{ $countrySwitch->getLabel($locale) }}
                         </span>
 
                     @endif

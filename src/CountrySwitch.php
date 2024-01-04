@@ -2,17 +2,17 @@
 
 declare(strict_types=1);
 
-namespace BezhanSalleh\FilamentLanguageSwitch;
+namespace Elsayed85\FilamentCountrySwitch;
 
-use BezhanSalleh\FilamentLanguageSwitch\Enums\Placement;
 use Closure;
+use Elsayed85\FilamentCountrySwitch\Enums\Placement;
 use Exception;
 use Filament\Panel;
 use Filament\Support\Concerns;
 use Filament\Support\Facades\FilamentView;
 use Illuminate\Support\Facades\Blade;
 
-class LanguageSwitch
+class CountrySwitch
 {
     use Concerns\Configurable;
     use Concerns\EvaluatesClosures;
@@ -31,7 +31,7 @@ class LanguageSwitch
 
     protected array | Closure $labels = [];
 
-    protected array | Closure $locales = [];
+    protected array | Closure $countries = [];
 
     protected ?Placement $outsidePanelPlacement = null;
 
@@ -82,14 +82,14 @@ class LanguageSwitch
         return $this;
     }
 
-    public function displayLocale(string $locale = null): static
+    public function displayLocale(?string $locale = null): static
     {
         $this->displayLocale = $locale ?? app()->getLocale();
 
         return $this;
     }
 
-    public function outsidePanelRoutes(array | Closure $routes = null): static
+    public function outsidePanelRoutes(array | Closure | null $routes = null): static
     {
         $this->outsidePanelRoutes = $routes ?? [
             'auth.login',
@@ -128,9 +128,9 @@ class LanguageSwitch
         return $this;
     }
 
-    public function locales(array | Closure $locales): static
+    public function countries(array | Closure $countries): static
     {
-        $this->locales = $locales;
+        $this->countries = $countries;
 
         return $this;
     }
@@ -201,7 +201,7 @@ class LanguageSwitch
     public function isVisibleInsidePanels(): bool
     {
         return (bool) ($this->evaluate($this->visibleInsidePanels)
-            && count($this->locales) > 1
+            && count($this->countries) > 1
             && $this->isCurrentPanelIncluded());
     }
 
@@ -217,9 +217,9 @@ class LanguageSwitch
         return (array) $this->evaluate($this->labels);
     }
 
-    public function getLocales(): array
+    public function getCountries(): array
     {
-        return (array) $this->evaluate($this->locales);
+        return (array) $this->evaluate($this->countries);
     }
 
     public function getOutsidePanelPlacement(): Placement

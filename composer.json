@@ -1,22 +1,14 @@
 {
-    "name": "bezhansalleh/filament-language-switch",
-    "description": "Zero config Language Switch(Changer/Localizer) plugin for filamentphp admin",
+    "name": "elsayed85/country-switch",
+    "description": "Country Switch",
     "keywords": [
-        "bezhanSalleh",
-        "laravel",
-        "filament-language-switch",
-        "filament-language-changer",
-        "filament-locale-changer",
-        "filament-localizer",
-        "filament-plugin",
-        "filamentphp"
     ],
-    "homepage": "https://github.com/bezhansalleh/filament-language-switch",
+    "homepage": "https://github.com/Elsayed85/filament-language-switch",
     "license": "MIT",
     "authors": [
         {
-            "name": "Bezhan Salleh",
-            "email": "bezhan_salleh@yahoo.com",
+            "name": "Elsayed",
+            "email": "elsayedkamal581999@gmail.com",
             "role": "Developer"
         }
     ],
@@ -36,12 +28,12 @@
     },
     "autoload": {
         "psr-4": {
-            "BezhanSalleh\\FilamentLanguageSwitch\\": "src"
+            "Elsayed85\\FilamentCountrySwitch\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "BezhanSalleh\\FilamentLanguageSwitch\\Tests\\": "tests"
+            "Elsayed85\\FilamentCountrySwitch\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -57,7 +49,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "BezhanSalleh\\FilamentLanguageSwitch\\FilamentLanguageSwitchServiceProvider"
+                "FilamentCountrySwitchServiceProvider"
             ]
         }
     },

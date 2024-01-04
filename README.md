@@ -1,4 +1,4 @@
-<a href="https://github.com/bezhansalleh/filament-language-switch" class="filament-hidden">
+<a href="https://github.com/Elsayed85/filament-language-switch" class="filament-hidden">
 
 ![Filament Language Switch](./.github/banner.jpg?raw=true "Filament Language Switch")
 
@@ -7,18 +7,18 @@
     <a href="https://filamentadmin.com/docs/2.x/admin/installation">
         <img alt="FILAMENT 8.x" src="https://img.shields.io/badge/FILAMENT-2.x-EBB304?style=for-the-badge">
     </a>
-    <a href="https://packagist.org/packages/bezhansalleh/filament-language-switch">
-        <img alt="Packagist" src="https://img.shields.io/packagist/v/bezhansalleh/filament-language-switch.svg?style=for-the-badge&logo=packagist">
+    <a href="https://packagist.org/packages/Elsayed85/filament-language-switch">
+        <img alt="Packagist" src="https://img.shields.io/packagist/v/Elsayed85/filament-language-switch.svg?style=for-the-badge&logo=packagist">
     </a>
-    <a href="https://github.com/bezhansalleh/filament-language-switch/actions?query=workflow%3Arun-tests+branch%3Amain" class="filament-hidden">
-        <img alt="Tests Passing" src="https://img.shields.io/github/actions/workflow/status/bezhansalleh/filament-language-switch/run-tests.yml?style=for-the-badge&logo=github&label=tests">
+    <a href="https://github.com/Elsayed85/filament-language-switch/actions?query=workflow%3Arun-tests+branch%3Amain" class="filament-hidden">
+        <img alt="Tests Passing" src="https://img.shields.io/github/actions/workflow/status/Elsayed85/filament-language-switch/run-tests.yml?style=for-the-badge&logo=github&label=tests">
     </a>
-    <a href="https://github.com/bezhansalleh/filament-language-switch/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain" class="filament-hidden">
-        <img alt="Code Style Passing" src="https://img.shields.io/github/actions/workflow/status/bezhansalleh/filament-language-switch/run-laravel-pint.yml?style=for-the-badge&logo=github&label=code%20style">
+    <a href="https://github.com/Elsayed85/filament-language-switch/actions?query=workflow%3A"Check+%26+fix+styling"+branch%3Amain" class="filament-hidden">
+        <img alt="Code Style Passing" src="https://img.shields.io/github/actions/workflow/status/Elsayed85/filament-language-switch/run-laravel-pint.yml?style=for-the-badge&logo=github&label=code%20style">
     </a>
 
-<a href="https://packagist.org/packages/bezhansalleh/filament-language-switch">
-    <img alt="Downloads" src="https://img.shields.io/packagist/dt/bezhansalleh/filament-language-switch.svg?style=for-the-badge" >
+<a href="https://packagist.org/packages/Elsayed85/filament-language-switch">
+    <img alt="Downloads" src="https://img.shields.io/packagist/dt/Elsayed85/filament-language-switch.svg?style=for-the-badge" >
     </a>
 <a href="https://discord.com/channels/883083792112300104/990920249744453642" target="_blank">
     <img alt="Downloads" src="https://img.shields.io/discord/883083792112300104?label=Discord&style=for-the-badge" >
@@ -35,7 +35,7 @@ The **Language Switch** plugin is a versatile and user-friendly tool designed fo
 * [Filament v3](https://filamentphp.com/docs/3.x/panels/installation)
 
 > [!NOTE]  
-> For [Filament v2](https://filamentphp.com/docs/2.x/admin/installation) use [v1](https://github.com/bezhanSalleh/filament-language-switch/tree/1.x)
+> For [Filament v2](https://filamentphp.com/docs/2.x/admin/installation) use [v1](https://github.com/Elsayed85/filament-language-switch/tree/1.x)
 
 ***
 
@@ -54,7 +54,7 @@ The **Language Switch** plugin is a versatile and user-friendly tool designed fo
 Install the package via composer:
 
 ```bash
-composer require bezhansalleh/filament-language-switch
+composer require Elsayed85/filament-language-switch
 ```
 
 ## Usage
@@ -64,7 +64,7 @@ The plugin boots after installation automatically. For the plugin to work, provi
 ```php
 
 ...
-use BezhanSalleh\FilamentLanguageSwitch\LanguageSwitch;
+use Elsayed85\FilamentCountrySwitch\CountrySwitch;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -74,7 +74,7 @@ class AppServiceProvider extends ServiceProvider
     {
         ...
         
-        LanguageSwitch::configureUsing(function (LanguageSwitch $switch) {
+        CountrySwitch::configureUsing(function (CountrySwitch $switch) {
             $switch
                 ->locales(['ar','en','fr']); // also accepts a closure
         });
@@ -165,7 +165,7 @@ Set the desired placement for the **language switch** outside Filament Panels li
 ```php
 // AppServiceProvider.php
 ...
-use BezhanSalleh\FilamentLanguageSwitch\Enums\Placement;
+use Elsayed85\FilamentCountrySwitch\Enums\Placement;
 
 LanguageSwitch::configureUsing(function (LanguageSwitch $switch) {
     $switch
@@ -326,7 +326,7 @@ The plugin follows Filament's theming rules. So, if you have custom themes add t
 export default {
     content: [
         // ...
-        './vendor/bezhansalleh/filament-language-switch/resources/views/language-switch.blade.php',
+        './vendor/Elsayed85/filament-language-switch/resources/views/language-switch.blade.php',
     ],
     // ...
 }
@@ -360,7 +360,7 @@ Install the packages in your app's `composer.json`:
 
 ```json
 "require": {
-    "bezhansalleh/filament-language-switch": "dev-fix/error-message as main-dev",
+    "Elsayed85/filament-language-switch": "dev-fix/error-message as main-dev",
 },
 "repositories": [
     {
@@ -380,7 +380,7 @@ Please review [our security policy](../../security/policy) on how to report secu
 
 ## Credits
 
--   [Bezhan Salleh](https://github.com/bezhanSalleh)
+-   [Bezhan Salleh](https://github.com/Elsayed85)
 -   [All Contributors](../../contributors)
 
 ## License

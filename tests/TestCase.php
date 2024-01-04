@@ -1,8 +1,8 @@
 <?php
 
-namespace BezhanSalleh\FilamentLanguageSwitch\Tests;
+namespace Elsayed85\FilamentCountrySwitch\Tests;
 
-use BezhanSalleh\FilamentLanguageSwitch\FilamentLanguageSwitchServiceProvider;
+use Elsayed85\FilamentCountrySwitch\FilamentCountrySwitchServiceProvider;
 use Filament\FilamentServiceProvider;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Livewire\LivewireServiceProvider;
@@ -15,7 +15,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'BezhanSalleh\\FilamentLanguageSwitch\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
+            fn (string $modelName) => 'Elsayed85\\FilamentCountrySwitch\\Database\\Factories\\' . class_basename($modelName) . 'Factory'
         );
     }
 
@@ -24,7 +24,7 @@ class TestCase extends Orchestra
         return [
             LivewireServiceProvider::class,
             FilamentServiceProvider::class,
-            FilamentLanguageSwitchServiceProvider::class,
+            FilamentCountrySwitchServiceProvider::class,
         ];
     }
 

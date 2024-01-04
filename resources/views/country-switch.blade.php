@@ -1,11 +1,11 @@
 @php
-    $languageSwitch = \BezhanSalleh\FilamentLanguageSwitch\LanguageSwitch::make();
-    $locales = $languageSwitch->getLocales();
-    $isCircular = $languageSwitch->isCircular();
-    $isFlagsOnly = $languageSwitch->isFlagsOnly();
-    $hasFlags = filled($languageSwitch->getFlags());
-    $isVisibleOutsidePanels = $languageSwitch->isVisibleOutsidePanels();
-    $outsidePanelsPlacement = $languageSwitch->getOutsidePanelPlacement()->value;
+    $countrySwitch = \Elsayed85\FilamentCountrySwitch\CountrySwitch::make();
+    $locales = $countrySwitch->getLocales();
+    $isCircular = $countrySwitch->isCircular();
+    $isFlagsOnly = $countrySwitch->isFlagsOnly();
+    $hasFlags = filled($countrySwitch->getFlags());
+    $isVisibleOutsidePanels = $countrySwitch->isVisibleOutsidePanels();
+    $outsidePanelsPlacement = $countrySwitch->getOutsidePanelPlacement()->value;
     $placement = match(true){
         $outsidePanelsPlacement === 'top-center' && $isFlagsOnly => 'bottom',
         $outsidePanelsPlacement === 'bottom-center' && $isFlagsOnly => 'top',
@@ -24,10 +24,10 @@
             'justify-center' => str_contains($outsidePanelsPlacement, 'center'),
         ])>
             <div class="rounded-lg bg-gray-50 dark:bg-gray-950">
-                @include('filament-language-switch::switch')
+                @include('filament-country-switch::switch')
             </div>
         </div>
     @else
-        @include('filament-language-switch::switch')
+        @include('filament-country-switch::switch')
     @endif
 </div>

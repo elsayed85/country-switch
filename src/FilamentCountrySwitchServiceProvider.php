@@ -1,9 +1,9 @@
 <?php
 
-namespace BezhanSalleh\FilamentLanguageSwitch;
+namespace Elsayed85\FilamentCountrySwitch;
 
-use BezhanSalleh\FilamentLanguageSwitch\Http\Livewire\FilamentLanguageSwitch;
-use BezhanSalleh\FilamentLanguageSwitch\Http\Middleware\SwitchLanguageLocale;
+use Elsayed85\FilamentCountrySwitch\Http\Livewire\FilamentCountrySwitch;
+use Elsayed85\FilamentCountrySwitch\Http\Middleware\SwitchCountry;
 use Filament\Facades\Filament;
 use Filament\Http\Middleware\DispatchServingFilamentEvent;
 use Filament\Panel;
@@ -13,9 +13,9 @@ use Livewire\Livewire;
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class FilamentLanguageSwitchServiceProvider extends PackageServiceProvider
+class FilamentCountrySwitchServiceProvider extends PackageServiceProvider
 {
-    public static string $name = 'filament-language-switch';
+    public static string $name = 'filament-country-switch';
 
     public function configurePackage(Package $package): void
     {
@@ -28,23 +28,23 @@ class FilamentLanguageSwitchServiceProvider extends PackageServiceProvider
     {
         $this->registerPluginMiddleware();
 
-        Livewire::component('filament-language-switch', FilamentLanguageSwitch::class);
+        Livewire::component('filament-country-switch', FilamentCountrySwitch::class);
 
         FilamentAsset::register(
             assets: [
-                Css::make('filament-language-switch', __DIR__ . '/../resources/dist/filament-language-switch.css'),
+                Css::make('filament-country-switch', __DIR__ . '/../resources/dist/filament-country-switch.css'),
             ],
-            package: 'bezhansalleh/filament-language-switch'
+            package: 'elsayed85/country-switch'
         );
 
         Filament::serving(function () {
-            LanguageSwitch::boot();
+            CountrySwitch::boot();
         });
     }
 
     public function registerPluginMiddleware(): void
     {
-        collect(LanguageSwitch::make()->getPanels())
+        collect(CountrySwitch::make()->getPanels())
             ->each(fn ($panel) => $this->reorderCurrentPanelMiddlewareStack($panel));
     }
 
@@ -52,7 +52,7 @@ class FilamentLanguageSwitchServiceProvider extends PackageServiceProvider
     {
         $middlewareStack = invade($panel)->getMiddleware();
 
-        $middleware = SwitchLanguageLocale::class;
+        $middleware = SwitchCountry::class;
         $order = 'before';
         $referenceMiddleware = DispatchServingFilamentEvent::class;
 
