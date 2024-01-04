@@ -49,7 +49,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "FilamentCountrySwitchServiceProvider"
+                "Elsayed85\\FilamentCountrySwitch\\FilamentCountrySwitchServiceProvider"
             ]
         }
     },
