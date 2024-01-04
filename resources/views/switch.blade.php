@@ -13,33 +13,33 @@
                 'p-1 ring-2 ring-inset ring-gray-200 hover:ring-gray-300 dark:ring-gray-500 hover:dark:ring-gray-400' => $isFlagsOnly || $hasFlags,
             ])
             x-tooltip="{
-                content: @js($countrySwitch->getLabel(app()->getLocale())),
+                content: @js($countrySwitch->getLabel(session('filament_country' , 'kw'))),
                 theme: $store.theme,
                 placement: 'bottom'
             }"
         >
             @if ($isFlagsOnly || $hasFlags)
                 <x-filament-country-switch::flag
-                    :src="$countrySwitch->getFlag(app()->getLocale())"
+                    :src="$countrySwitch->getFlag(session('filament_country' , 'kw'))"
                     :circular="$isCircular"
-                    :alt="$countrySwitch->getLabel(app()->getLocale())"
+                    :alt="$countrySwitch->getLabel(session('filament_country' , 'kw'))"
                     :switch="true"
                 />
             @else
-                <span class="font-semibold text-md">{{ $countrySwitch->getCharAvatar(app()->getLocale()) }}</span>
+                <span class="font-semibold text-md">{{ $countrySwitch->getCharAvatar(session('filament_country' , 'kw')) }}</span>
             @endif
         </div>
     </x-slot>
 
     <x-filament::dropdown.list @class(['!border-t-0 space-y-1 !p-2.5'])>
-        @foreach ($locales as $locale)
-            @if (!app()->isLocale($locale))
+        @foreach ($countries as $country)
+            @if(session('filament_country') != $country)
                 <button
                     type="button"
-                    wire:click="changeLocale('{{ $locale }}')"
+                    wire:click="changeLocale('{{ $country }}')"
                     @if ($isFlagsOnly)
-                    x-tooltip="{
-                        content: @js($countrySwitch->getLabel($locale)),
+                        x-tooltip="{
+                        content: @js($countrySwitch->getLabel($country)),
                         theme: $store.theme,
                         placement: 'right'
                     }"
@@ -54,17 +54,17 @@
 
                     @if ($isFlagsOnly)
                         <x-filament-country-switch::flag
-                            :src="$countrySwitch->getFlag($locale)"
+                            :src="$countrySwitch->getFlag($country)"
                             :circular="$isCircular"
-                            :alt="$countrySwitch->getLabel($locale)"
+                            :alt="$countrySwitch->getLabel($country)"
                             class="w-7 h-7"
                         />
                     @else
                         @if ($hasFlags)
                             <x-filament-country-switch::flag
-                                :src="$countrySwitch->getFlag($locale)"
+                                :src="$countrySwitch->getFlag($country)"
                                 :circular="$isCircular"
-                                :alt="$countrySwitch->getLabel($locale)"
+                                :alt="$countrySwitch->getLabel($country)"
                                 class="p-0.5 w-7 h-7"
                             />
                         @else
@@ -75,11 +75,11 @@
                                     'rounded-lg' => !$isCircular,
                                 ])
                             >
-                                {{ $countrySwitch->getCharAvatar($locale) }}
+                                {{ $countrySwitch->getCharAvatar($country) }}
                             </span>
                         @endif
                         <span class="text-sm font-medium text-gray-600 hover:bg-transparent dark:text-gray-200">
-                            {{ $countrySwitch->getLabel($locale) }}
+                            {{ $countrySwitch->getLabel($country) }}
                         </span>
 
                     @endif

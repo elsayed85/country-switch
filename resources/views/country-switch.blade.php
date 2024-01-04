@@ -1,6 +1,6 @@
 @php
     $countrySwitch = \Elsayed85\FilamentCountrySwitch\CountrySwitch::make();
-    $locales = $countrySwitch->getLocales();
+    $countries = $countrySwitch->getCountries();
     $isCircular = $countrySwitch->isCircular();
     $isFlagsOnly = $countrySwitch->isFlagsOnly();
     $hasFlags = filled($countrySwitch->getFlags());

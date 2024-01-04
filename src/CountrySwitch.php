@@ -63,14 +63,14 @@ class CountrySwitch
         if ($static->isVisibleInsidePanels()) {
             FilamentView::registerRenderHook(
                 name: $static->getRenderHook(),
-                hook: fn (): string => Blade::render('<livewire:filament-language-switch key=\'fls-in-panels\' />')
+                hook: fn (): string => Blade::render('<livewire:filament-country-switch key=\'fls-in-panels\' />')
             );
         }
 
         if ($static->isVisibleOutsidePanels()) {
             FilamentView::registerRenderHook(
                 name: 'panels::body.end',
-                hook: fn (): string => Blade::render('<livewire:filament-language-switch key=\'fls-outside-panels\' />')
+                hook: fn (): string => Blade::render('<livewire:filament-country-switch key=\'fls-outside-panels\' />')
             );
         }
     }
