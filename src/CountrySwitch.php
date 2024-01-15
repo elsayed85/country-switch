@@ -11,8 +11,9 @@ use Filament\Panel;
 use Filament\Support\Concerns;
 use Filament\Support\Facades\FilamentView;
 use Illuminate\Support\Facades\Blade;
+use Filament\Support\Components\Component;
 
-class CountrySwitch
+class CountrySwitch extends Component
 {
     use Concerns\Configurable;
     use Concerns\EvaluatesClosures;
